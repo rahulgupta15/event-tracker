@@ -69,7 +69,7 @@ export default class EditEvent extends Component {
     });
   }
 
-  onSubmit(e) {
+  onSubmit = e => {
     e.preventDefault();
 
     const event = {
@@ -78,7 +78,7 @@ export default class EditEvent extends Component {
       duration: this.state.duration,
       date: this.state.date,
     };
-    console.log(event);
+    console.log(this.state);
 
     axios
       .post("http://localhost:5000/events/update"+this.props.match.params.id, event)
@@ -132,12 +132,11 @@ export default class EditEvent extends Component {
             <label>Date: </label>
             <div>
               <DatePicker
-                selected={this.state.duration}
-                onChange={this.onChangeDuration}
+                selected={this.state.date}
+                onChange={this.onChangeDate}
               />
             </div>
           </div>
-
           <div className="form-group">
             <input
               type="submit"

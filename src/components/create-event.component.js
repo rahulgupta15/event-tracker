@@ -46,7 +46,8 @@ export default class CreateEvent extends Component {
     });
   }
 
-  onChangeDuration(e) {
+  onChangeDuration = e => {
+    e.preventDefault();
     this.setState({
       duration: e.target.value
     });
@@ -111,7 +112,7 @@ export default class CreateEvent extends Component {
           <div className="form-group">
             <label>Duration (in minutes): </label>
             <input
-              type="text"
+              type="number"
               required
               className="form-control"
               value={this.state.duration}
@@ -122,8 +123,8 @@ export default class CreateEvent extends Component {
             <label>Date: </label>
             <div>
               <DatePicker
-                selected={this.state.duration}
-                onChange={this.onChangeDuration}
+                selected={this.state.date}
+                onChange={this.onChangeDate}
               />
             </div>
           </div>

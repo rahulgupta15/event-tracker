@@ -9,7 +9,7 @@ const Event = props => (
     <td>{props.event.duration}</td>
     <td>{props.event.date.substring(0,10)}</td>
     <td>
-      <Link to={"/edit/"+props.event._id}>edit</Link> | <a href="#" onClick={() => { props.deleteEvent(props.event._id) }}>delete</a>
+      <Link to={"/edit/"+props.event._id}>edit</Link> | <a href="/" onClick={() => { props.deleteEvent(props.event._id) }}>delete</a>
     </td>
 
   </tr>
@@ -21,7 +21,7 @@ export default class EventsList extends Component {
 
     this.deleteEvent = this.deleteEvent.bind(this);
 
-    this.state = {event: []};
+    this.state = {events: []};
   }
 
   componentDidMount() {
@@ -44,7 +44,7 @@ export default class EventsList extends Component {
 
   eventList() {
     return this.state.events.map(currentevent => {
-      return <Event event={currentevent} deleteEvent={this.deleteEvent} key={currentevent._id} />;
+      return <Event event={currentevent} deleteEvent={this.deleteEvent} key={currentevent._id}/>;
     })
   }
 
