@@ -8,7 +8,7 @@ const eventSchema = new Schema({
   duration: { type: Number, required: true },
   date: { type: Date, required: true },
 }, {
-  timestamp: true,
+  timestamps: true,
 });
 
 const Event = mongoose.model('Event', eventSchema);
