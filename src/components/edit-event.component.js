@@ -81,10 +81,11 @@ export default class EditEvent extends Component {
     console.log(this.state);
 
     axios
-      .post("http://localhost:5000/events/update"+this.props.match.params.id, event)
+      .post("http://localhost:5000/events/update/"+this.props.match.params.id, event)
       .then((res) => console.log(res.data));
 
     window.location = "/";
+
   }
 
   render() {
